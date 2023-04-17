@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+import 'package:diary/pages/login_page.dart';
+
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,10 +12,24 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xff2B7a78),
+          foregroundColor: Color(0xffFEFFFF),
+        ),
+        elevatedButtonTheme: const ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStatePropertyAll(
+              Color(0xff2B7a78),
+            ),
+            foregroundColor: MaterialStatePropertyAll(
+              Color(0xffFEFFFF),
+            ),
+          ),
+        ),
+        scaffoldBackgroundColor: const Color(0xff3AAFA9),
       ),
       debugShowCheckedModeBanner: false,
-      home: const Scaffold(),
+      home: const LoginPage(),
     );
   }
 }
