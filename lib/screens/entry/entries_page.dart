@@ -1,7 +1,8 @@
-import 'package:diary/utils.dart/extensions.dart';
 import 'package:flutter/material.dart';
 
-import '../models/entry.dart';
+import 'package:diary/models/entry.dart';
+import 'package:diary/screens/entry/entry_page.dart.dart';
+import 'package:diary/utils.dart/extensions.dart';
 
 class EntriesPage extends StatefulWidget {
   const EntriesPage({super.key});
@@ -122,30 +123,39 @@ class _EntriesPageState extends State<EntriesPage> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4.0),
-                  child: ListTile(
-                    trailing: const Icon(
-                      Icons.read_more,
-                      color: Colors.white,
-                    ),
-                    title: Column(
-                      children: [
-                        Text(
-                          entries[index].title,
-                          style: const TextStyle(
-                            color: Color(0xffFEFFFF),
-                            fontSize: 18,
-                          ),
-                          textAlign: TextAlign.center,
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const EntryPage(),
                         ),
-                        Text(
-                          truncateString(entries[index].text, 30),
-                          style: const TextStyle(
-                            color: Color(0xffFEFFFF),
-                            fontSize: 12,
+                      );
+                    },
+                    child: ListTile(
+                      trailing: const Icon(
+                        Icons.read_more,
+                        color: Colors.white,
+                      ),
+                      title: Column(
+                        children: [
+                          Text(
+                            entries[index].title,
+                            style: const TextStyle(
+                              color: Color(0xffFEFFFF),
+                              fontSize: 18,
+                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                          Text(
+                            truncateString(entries[index].text, 30),
+                            style: const TextStyle(
+                              color: Color(0xffFEFFFF),
+                              fontSize: 12,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );
