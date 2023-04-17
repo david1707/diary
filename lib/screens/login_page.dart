@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:diary/pages/entries_page.dart';
-import 'package:diary/pages/register_page.dart';
+import 'package:diary/screens/entries_page.dart';
+import 'package:diary/screens/register_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
